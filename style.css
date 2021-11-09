@@ -19,6 +19,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .menu-icon {
@@ -35,7 +36,7 @@ body {
 
 .line-1, .line-3 {
     width: 18px;
-    transition: width .3s;
+    transition: all 0.4s;
 }
 
 .menu-icon:hover .line{
@@ -69,8 +70,8 @@ body {
 }
 
 .navigation {
-    margin-left: 80px;
     position: fixed;
+    left: -320px;
     width: 400px;
     height: 100%;
     background: linear-gradient(to top, rgba(34, 32, 41, 1), rgba(34, 32, 41, 0.8)), url(/img/nav-bg.jpeg) center no-repeat;
@@ -78,6 +79,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    transition: left 0.7s ease-in-out;
 }
 
 .navigation-heading {
@@ -185,4 +187,20 @@ body {
     color: #fff;
     font-size: 1.2rem;
     margin-bottom: 36px;
+}
+
+.checkbox:checked ~ .navigation {
+    left: 80px;
+}
+
+.checkbox:checked ~ .sidebar .line-1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.checkbox:checked ~ .sidebar .line-2 {
+    opacity: 0;
+}
+
+.checkbox:checked ~ .sidebar .line-3 {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
